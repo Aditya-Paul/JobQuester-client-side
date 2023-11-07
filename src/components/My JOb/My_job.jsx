@@ -1,113 +1,67 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/Authprovider";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-const All_jobs = () => {
-    const [jobTitle, setJobTitle] = useState('');
+
+const My_job = () => {
+    const { user = {} } = useContext(AuthContext)
     const [data, setData] = useState([])
-    const [dropdown, setdropdown] = useState([])
 
-    const handlechange = e => {
-        e.preventDefault();
-        const data = e.target.value
-        console.log(data)
-        setJobTitle(data)
+    // const { fetchdata, isLoading, isFetching, refetch } = useQuery({
+
+    // })
+
+    console.log(user?.email)
+    useEffect(() => {
+        if (user) {
+            fetch(`http://localhost:3000/jobs?email=${user?.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    setData(data)
+                })
+        }
+
+    }, [user, data])
+
+    const handledelete = (id) => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:3000/jobs/${id}`)
+                    .then(res => {
+                        if (res.data.deleteCount > 0) {
+                            Swal.fire("Good job!", "Google login successfull", "success");
+                            const remaining = data.filter(item => item._id !== id)
+                            setData(remaining)
+                        }
+                    })
+            }
+        })
+
+
     }
-
-    useEffect(() => {
-        if (jobTitle) {
-            fetch(`http://localhost:3000/jobs?job_title=${jobTitle}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    setData(data)
-                })
-
-        }
-        else if (!jobTitle) {
-            fetch(`http://localhost:3000/jobs?job_title=${jobTitle}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    setData(data)
-                })
-        }
-
-    }, [jobTitle])
-
-    useEffect(() => {
-        fetch(`http://localhost:3000/jobs`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setdropdown(data)
-            })
-
-    }, [jobTitle])
-
     return (
         <div className="text-center ">
 
             <div className="mt-4 mx-6  border-x-2 border-purple-100">
                 <div className="">
-                    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-center">
-                        {
-                            data.map(data => <>
-                                <div className="">
-                                    <div className="  " >
-
-                                        <div className="relative m-4 ">
-
-                                            <div className="bg-purple-400 absolute rounded-xl h-full lg:w-full w-fit -left-2 -top-2"></div>
-
-                                            <div className="p-8 w-72 bg-gray-100 rounded-xl shadow-lg relative space-y-7" >
-                                                <div className="bg-green-300 h-3 w-16 ml-auto"></div>
-                                                <span className="text-xl text-purple-300">{data.job_title}</span>
-                                                <p className="text-base">Name: {data.name}</p>
-                                                <p className="text-base">Post Date: {data?.postdate.slice(0, 10)}</p>
-                                                <p className="text-base text-red-400">Deadline: {data?.deadline.slice(0, 10)}</p>
-                                                <p className="text-gray-500">Salary:{data.salary}$</p>
-                                                <p className="">Applicant: {data.applicant_number}</p>
-
-                                                <button className="btn bg-purple-400 "> View</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </>)
-
-                        }
-                    </div> */}
-                    {/* {
-                        loading? */}
-
                     <div className="container mx-auto px-4 sm:px-8">
                         <div className="py-8">
                             <div className="mb-6">
-                                <h2 className="text-2xl font-semibold ">All jobs</h2>
+                                <h2 className="text-2xl font-semibold ">My jobs</h2>
 
                             </div>
-                            <div className=" flex flex-wrap space-y-5 items-center justify-between">
-                                <div className="">
-                                    Available jobs
-                                    <select
-                                        className="bordered border-2 rounded-lg h-12 ml-2"
-                                    >
-                                        {
-                                            dropdown.map(data => <>
-                                                <option key={data._id}  value={data.job_title}>{data.job_title}</option>
-                                            </>)
-                                        }
 
-                                    </select>
-                                </div>
-                                <div className="group w-72 md:w-80 lg:w-96 ">
-
-                                    <div className="relative flex items-center">
-                                        <input type="text" onChange={handlechange} name="job_title" value={jobTitle} className="relative h-10 w-full rounded-md bg-purple-200 pl-4 pr-20 font-thin outline-none drop-shadow-sm " />
-                                        <button className="absolute right-2 h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 ">Search</button>
-                                    </div>
-                                </div>
-                            </div>
                             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                 <div className="inline-block min-w-full shadow-md rounded-lg ">
                                     <table className="min-w-full">
@@ -115,11 +69,19 @@ const All_jobs = () => {
                                             <tr>
                                                 <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                                 >
+                                                    Image
+                                                </th>
+                                                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                                >
                                                     Name
                                                 </th>
                                                 <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase"
                                                 >
                                                     Job Title
+                                                </th>
+                                                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase"
+                                                >
+                                                    Job Category
                                                 </th>
                                                 <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                                 >
@@ -135,7 +97,15 @@ const All_jobs = () => {
                                                 </th>
                                                 <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
                                                 >
-                                                    Details
+                                                    Applicant Number
+                                                </th>
+                                                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                                >
+                                                    Update
+                                                </th>
+                                                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                                                >
+                                                    Delete
                                                 </th>
                                             </tr>
                                         </thead>
@@ -143,14 +113,20 @@ const All_jobs = () => {
                                         {
                                             data.map(data =>
                                                 <>
-                                                    <tbody>
+                                                    <tbody >
                                                         <tr>
 
+                                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                                <p className="text-gray-900 whitespace-no-wrap"><img className="w-10 h-10" src={data.job_banner} alt="" /></p>
+                                                            </td>
                                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                                 <p className="text-gray-900 whitespace-no-wrap">{data.name}</p>
                                                             </td>
                                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                                 <p className="text-gray-900 whitespace-no-wrap">{data.job_title}</p>
+                                                            </td>
+                                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                                <p className="text-gray-900 whitespace-no-wrap">{data.job_category}</p>
                                                             </td>
                                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                                 <p className="text-gray-900 whitespace-no-wrap">{data?.postdate.slice(0, 10)}</p>
@@ -162,13 +138,20 @@ const All_jobs = () => {
                                                                 <p className="text-gray-600 whitespace-no-wrap">{data.salary}$</p>
                                                             </td>
                                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                                <Link to={`/job/${data._id}`}>
-                                                                <button className="h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 ">Details</button>
+                                                                <p className="text-gray-600 whitespace-no-wrap">{data.applicant_number}</p>
+                                                            </td>
+                                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                                <Link to={`/JobQuester/Updatejob/${data._id}`}>
+                                                                    <button className="h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 btn ">Update</button>
                                                                 </Link>
+                                                            </td>
+                                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                                <button onClick={() => handledelete(data._id)} className="h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 btn ">Delete</button>
                                                             </td>
                                                         </tr>
 
                                                     </tbody>
+
 
                                                 </>)
                                         }
@@ -185,4 +168,4 @@ const All_jobs = () => {
     );
 };
 
-export default All_jobs;
+export default My_job;

@@ -29,7 +29,7 @@ const Add_Job = () => {
             .then(res=>{
                 console.log(res.data)
                 if(res.data.acknowledged){
-                    Swal.fire("Good job!", "Successfully posdted to database", "success");
+                    Swal.fire("Good job!", "Successfully posted to database", "success");
                 }
             })
     }
@@ -64,9 +64,9 @@ const Add_Job = () => {
                         <div className="flex items-center mb-10">
                             <label className="w-20 inline-block text-right mr-4 text-gray-500 text-gray-500">Job Category</label>
                             <select name="job_category" placeholder="Job Category" className="bordered border-2 rounded-lg h-12">
-                                <option value="On Site">On-Site</option>
+                                <option value="On Site">On Site</option>
                                 <option value="Remote">Remote</option>
-                                <option value="Part-Time">Part-Time</option>
+                                <option value="Part-Time">Part Time</option>
                                 <option value="Hybrid">Hybrid</option>
                             </select>
                         </div>

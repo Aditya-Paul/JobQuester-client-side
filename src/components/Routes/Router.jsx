@@ -7,6 +7,11 @@ import Home from "../Home/Home/Home";
 import Blog from "../Blog/Blog";
 import Add_Job from "../Add_A_Job/Add_Job";
 import All_jobs from "../All jobs/All_jobs";
+import PrivateRoute from "./PrivateRoute";
+import Jobdetails from "../Job details/Jobdetails";
+import My_job from "../My JOb/My_job";
+import Updatejob from "../My JOb/Updatejob";
+import Applyjob from "../Apply job/Applyjob";
 
 
 const router = createBrowserRouter([
@@ -33,11 +38,31 @@ const router = createBrowserRouter([
             },
             {
                 path: '/JobQuester/add_a_job', 
-                element: <Add_Job></Add_Job>,
+                element: <PrivateRoute><Add_Job></Add_Job></PrivateRoute>,
             },
             {
                 path: '/JobQuester/all_jobs', 
-                element: <All_jobs></All_jobs>,
+                element:<PrivateRoute><All_jobs></All_jobs></PrivateRoute> ,
+            },
+            {
+                path: '/JobQuester/My_Jobs', 
+                element: <My_job></My_job>,
+                loader: ()=> fetch(`http://localhost:3000/jobs`)
+            },
+            {
+                path: '/JobQuester/Applied_Jobs', 
+                element: <Applyjob></Applyjob>,
+                loader: ()=> fetch(`http://localhost:3000/appliedjobs`)
+            },
+            {
+                path: '/JobQuester/Updatejob/:id', 
+                element: <Updatejob></Updatejob>,
+                loader: ({params})=> fetch(`http://localhost:3000/jobs/${params.id}`)
+            },
+            {
+                path: '/job/:id', 
+                element: <Jobdetails></Jobdetails>,
+                loader: ({params})=> fetch(`http://localhost:3000/jobs/${params.id}`)
             },
 
         ]

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useEffect, useState } from "react";
-import { Tab, TabList, Tabs } from "react-tabs";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { AuthContext } from "../../Provider/Authprovider";
 import Swal from "sweetalert2";
 // import { useQuery } from "@tanstack/react-query";
@@ -36,18 +36,33 @@ const BannerCards = () => {
     }
     return (
         <div className="mt-4 mx-6  border-x-2 border-purple-100">
-            <Tabs className="">
+            <Tabs className=" text-center">
                 <TabList className="grid grid-cols-5 gap-4 w-full p-2">
                     <Tab onClick={() => setCategory('')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600   ">All</Tab>
-                    <Tab onClick={() => setCategory('On-Site')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">On Site Job</Tab>
+                    <Tab onClick={() => setCategory('On Site')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">On Site Job</Tab>
                     <Tab onClick={() => setCategory('Remote')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">Remote Job</Tab>
                     <Tab onClick={() => setCategory('Hybrid')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">Hybrid</Tab>
-                    <Tab onClick={() => setCategory('Part-Time')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">Part Time</Tab>
+                    <Tab onClick={() => setCategory('Part Time')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">Part Time</Tab>
                 </TabList>
+                <TabPanel>
+                    <p>Content for All Job</p>
+                </TabPanel>
+                <TabPanel>
+                    <p>Content for On Site Job</p>
+                </TabPanel>
+                <TabPanel>
+                    <p>Content for Remote Job</p>
+                </TabPanel>
+                <TabPanel>
+                    <p>Content for Hybrid</p>
+                </TabPanel>
+                <TabPanel>
+                    <p>Content for Part Time</p>
+                </TabPanel>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-center">
                     {
-                        specificjob.map(data => <>
-                            <div className="">
+                        specificjob.map(data => <div key={data._id}>
+                            <div  className="">
                                 <div className="  " >
 
                                     <div className="relative m-4 ">
@@ -68,7 +83,7 @@ const BannerCards = () => {
                                     </div>
                                 </div>
                             </div>
-                        </>)
+                        </div>)
 
                     }
                 </div>
