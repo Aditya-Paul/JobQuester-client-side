@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { AuthContext } from "../../Provider/Authprovider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 // import { useQuery } from "@tanstack/react-query";
 
 const BannerCards = () => {
@@ -77,8 +78,10 @@ const BannerCards = () => {
                                             <p className="text-base text-red-400">Deadline: {data?.deadline.slice(0, 10)}</p>
                                             <p className="text-gray-500">Salary:{data.salary}$</p>
                                             <p className="">Applicant: {data.applicant_number}</p>
-
+                                            <Link to={`/job/${data._id}`}>
                                             <button onClick={handleview} className="btn bg-purple-400 "> View</button>
+                                            </Link>
+                                            
                                         </div>
                                     </div>
                                 </div>

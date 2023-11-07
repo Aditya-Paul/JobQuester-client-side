@@ -64,6 +64,7 @@ const All_jobs = () => {
                                         className="bordered border-2 rounded-lg h-12 ml-2"
                                         value={jobTitle}
                                     >
+                                        <option>{''}</option>
                                         {
                                             dropdown.map(data => <>
                                                 <option key={data._id} value={data.job_title}>{data.job_title}</option>
@@ -72,13 +73,7 @@ const All_jobs = () => {
 
                                     </select>
                                 </div>
-                                <div className="group w-72 md:w-80 lg:w-96 ">
-
-                                    <div className="relative flex items-center">
-                                        <input type="text" name="job_title"  className="relative h-10 w-full rounded-md bg-purple-200 pl-4 pr-20 font-thin outline-none drop-shadow-sm " />
-                                        <button className="absolute right-2 h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 ">Search</button>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                 <div className="inline-block min-w-full shadow-md rounded-lg ">
