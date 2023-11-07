@@ -68,10 +68,15 @@ const Blog = () => {
             <div className="collapse collapse-plus bg-base-200">
                 <input type="radio" name="my-accordion-3" />
                 <div className="collapse-title text-xl font-medium">
-                    Q5.  What is Nest JS?
+                    Q5. Explain your code?
                 </div>
                 <div className="collapse-content">
-                    <p>hello</p>
+                    <p>Done some responsive layout.</p>
+                    <p>Done some Firebase authentication.</p>
+                    <p>Done some store and fetch data from MongoDb.</p>
+                    <p>Done some query filter.</p>
+                    <p>Use React-to-Pdf, datapicker, react-tab package for some beautification and less code.</p>
+                    <p>Use JWT for token create , set and verification.</p>
                 </div>
             </div>
 
