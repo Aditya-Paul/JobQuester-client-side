@@ -35,7 +35,8 @@ const Applyjob = () => {
     }, [jobCategory])
     return (
         <div className="text-center ">
-
+            
+                                       
             <div className="mt-4 mx-6  border-x-2 border-purple-100" ref={targetRef}>
                 <div className="">
                     <div className="container mx-auto px-4 sm:px-8">
@@ -58,6 +59,7 @@ const Applyjob = () => {
 
                                     </select>
                                 </div>
+                                <button className= "w-40 h-10 rounded-md bg-purple-300 text-base font-semibold text-purple-500" onClick={() => toPDF()}>Download PDF</button>
                             </div>
 
                             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -139,8 +141,7 @@ const Applyjob = () => {
 
                 </div>
             </div>
-            <button onClick={() => toPDF()}>Download PDF</button>
-
+            
         </div >
     );
 };
