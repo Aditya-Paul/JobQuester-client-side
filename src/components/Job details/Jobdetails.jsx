@@ -95,7 +95,7 @@ const Jobdetails = () => {
                                 <div className="flex py-4 space-x-4">
                                     {
                                         user?.email === loadData?.email ?
-                                            <h2>You can`t apply your own job post</h2>
+                                            <h2 className="text-lg font-medium">You can`t apply your own job post</h2>
                                             :
 
                                             <div>

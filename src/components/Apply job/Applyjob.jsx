@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-
+import { usePDF } from 'react-to-pdf';
 
 const Applyjob = () => {
+    const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
     const [jobCategory, setCategory] = useState('');
     const [data, setData] = useState([])
 
@@ -36,7 +36,7 @@ const Applyjob = () => {
     return (
         <div className="text-center ">
 
-            <div className="mt-4 mx-6  border-x-2 border-purple-100">
+            <div className="mt-4 mx-6  border-x-2 border-purple-100" ref={targetRef}>
                 <div className="">
                     <div className="container mx-auto px-4 sm:px-8">
                         <div className="py-8">
@@ -139,6 +139,7 @@ const Applyjob = () => {
 
                 </div>
             </div>
+            <button onClick={() => toPDF()}>Download PDF</button>
 
         </div >
     );
