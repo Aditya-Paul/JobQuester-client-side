@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/JobQuester/My_Jobs', 
                 element:<PrivateRoute><My_job></My_job></PrivateRoute> ,
-                loader: ()=> fetch(`http://localhost:3000/job`)
+                loader: ()=> fetch(`http://localhost:3000/jobs`)
             },
             {
                 path: '/JobQuester/Applied_Jobs', 
