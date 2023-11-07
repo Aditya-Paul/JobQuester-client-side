@@ -18,7 +18,7 @@ const Blog = () => {
                         <br />
                         <p className="text-xl">Refresh Token:</p>
                         <br />
-                        A refresh token in the context of JWT (JSON Web Token) is like a special key that allows you to get a new access token whenever your current access token expires, without needing to log in or provide your credentials again. It's a long-lasting key that helps keep you signed in and access protected areas for an extended period.</p>
+                        A refresh token in the context of JWT (JSON Web Token) is like a special key that allows you to get a new access token whenever your current access token expires, without needing to log in or provide your credentials again. Its a long-lasting key that helps keep you signed in and access protected areas for an extended period.</p>
                 </div>
             </div>
             <div className="collapse collapse-plus bg-base-200">
@@ -35,7 +35,7 @@ const Blog = () => {
                         When a user logs in or authorizes an application, they receive an access token. This token is like a temporary key that allows the user or application to access specific resources or services.
                         <p className="text-xl">Refresh token work method:</p>
                         <br />
-                        Along with the access token, the authorization server issues a refresh token.The refresh token is a long-lasting key that's used to request a new access token when the current one expires.
+                        Along with the access token, the authorization server issues a refresh token.The refresh token is a long-lasting key thats used to request a new access token when the current one expires.
                         <br />
                         <p className="text-xl">Access Token store method:</p>
                         <br />
