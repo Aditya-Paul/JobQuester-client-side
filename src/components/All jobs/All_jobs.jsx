@@ -58,13 +58,15 @@ const All_jobs = () => {
                             </div>
                             <div className=" flex flex-wrap space-y-5 items-center justify-between">
                                 <div className="">
-                                    Available jobs
+                                    Available Post
                                     <select
+                                        onChange={handlechange}
                                         className="bordered border-2 rounded-lg h-12 ml-2"
+                                        value={jobTitle}
                                     >
                                         {
                                             dropdown.map(data => <>
-                                                <option key={data._id}  value={data.job_title}>{data.job_title}</option>
+                                                <option key={data._id} value={data.job_title}>{data.job_title}</option>
                                             </>)
                                         }
 
@@ -73,7 +75,7 @@ const All_jobs = () => {
                                 <div className="group w-72 md:w-80 lg:w-96 ">
 
                                     <div className="relative flex items-center">
-                                        <input type="text" onChange={handlechange} name="job_title" value={jobTitle} className="relative h-10 w-full rounded-md bg-purple-200 pl-4 pr-20 font-thin outline-none drop-shadow-sm " />
+                                        <input type="text" name="job_title"  className="relative h-10 w-full rounded-md bg-purple-200 pl-4 pr-20 font-thin outline-none drop-shadow-sm " />
                                         <button className="absolute right-2 h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 ">Search</button>
                                     </div>
                                 </div>
@@ -133,7 +135,7 @@ const All_jobs = () => {
                                                             </td>
                                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                                 <Link to={`/job/${data._id}`}>
-                                                                <button className="h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 ">Details</button>
+                                                                    <button className="h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 ">Details</button>
                                                                 </Link>
                                                             </td>
                                                         </tr>
