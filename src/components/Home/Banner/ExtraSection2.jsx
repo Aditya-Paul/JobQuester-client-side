@@ -7,7 +7,7 @@ const ExtraSection2 = () => {
                     <div className="flex flex-wrap items-center -mx-3">
                         <div className="order-1 w-full px-3 lg:w-1/2 lg:order-0">
                             <div className="w-full lg:max-w-md">
-                                <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl font-heading">JobQuester packed with all the servicess you need to succeed!</h2>
+                                <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl font-heading">JobQuester packed with all th servicess you need to succeed!</h2>
                                 <p className="mb-4 font-medium tracking-tight text-gray-400 xl:mb-6">It's never been easier to build a carrier of your own. Our services will help you with the following:</p>
                                 <ul>
                                     <li className="flex items-center py-2 space-x-4 xl:py-3">
