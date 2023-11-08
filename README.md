@@ -1,8 +1,13 @@
-# React + Vite
+# JOb Quester
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
++ Something About this Website.
 
-Currently, two official plugins are available:
++ This is a job searching Platform although JOb posting.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
++ React, Tailwind, Node , EXpress & Mongodb used for creating this website.
+
++ There are some restriction on some pages you have to login first to visit this pages.
+
++ You can also see how many applicants apply on your post.
+
++ You can also see which job post you apply for.  
