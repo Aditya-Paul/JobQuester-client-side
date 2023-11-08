@@ -38,13 +38,13 @@ const Authprovider = ({ children }) => {
             setUser(currentUser)
             setLoading(false)
             if(currentUser){
-                axios.post('http://localhost:3000/jwt',loggedEmail,{withCredentials: true})
+                axios.post('https://job-quester-server-side.vercel.app/jwt',loggedEmail,{withCredentials: true})
                 .then(res=>{
                     console.log('get token',res.data)
                 })
             }
             else(
-                axios.post('http://localhost:3000/logout',loggedEmail,
+                axios.post('https://job-quester-server-side.vercel.app/logout',loggedEmail,
                 {withCredentials: true})
                 .then(res=>{
                     console.log(res.data)

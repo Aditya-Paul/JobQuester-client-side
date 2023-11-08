@@ -40,10 +40,10 @@ const Jobdetails = () => {
             Swal.fire("Oops!", "You Crossed The Deadlline", "error");
         }
         else (
-            axios.patch(`http://localhost:3000/jobs/${id}`, { applicant_number: newNumber })
+            axios.patch(`https://job-quester-server-side.vercel.app/jobs/${id}`, { applicant_number: newNumber })
                 .then(res => {
                     if(res.data){
-                        axios.post('http://localhost:3000/appliedjobs', applydata)
+                        axios.post('https://job-quester-server-side.vercel.app/appliedjobs', applydata)
                         .then(res => {
                             console.log(res.data)
                             if (res.data.acknowledged) {

@@ -15,7 +15,7 @@ const Applyjob = () => {
 
     useEffect(() => {
         if (jobCategory) {
-            fetch(`http://localhost:3000/appliedjobs?job_category=${jobCategory}`)
+            fetch(`https://job-quester-server-side.vercel.app/appliedjobs?job_category=${jobCategory}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -24,7 +24,7 @@ const Applyjob = () => {
 
         }
         else if (!jobCategory) {
-            fetch(`http://localhost:3000/appliedjobs?job_category=${jobCategory}`)
+            fetch(`https://job-quester-server-side.vercel.app/appliedjobs?job_category=${jobCategory}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)

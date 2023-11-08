@@ -16,7 +16,7 @@ const My_job = () => {
     console.log(user?.email)
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:3000/jobs?email=${user?.email}`)
+            fetch(`https://job-quester-server-side.vercel.app/jobs?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setData(data)
@@ -37,7 +37,7 @@ const My_job = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/jobs/${id}`)
+                axios.delete(`https://job-quester-server-side.vercel.app/jobs/${id}`)
                     .then(res => {
                         if (res.data.deleteCount > 0) {
                             Swal.fire("Good job!", "Google login successfull", "success");

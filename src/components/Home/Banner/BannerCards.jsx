@@ -16,13 +16,13 @@ const BannerCards = () => {
     // const { data,isLoading } = useQuery({
     //     queryKey: ["job_category"],
     //     queryFn: async () => {
-    //         const data = await fetch(`http://localhost:3000/jobs?job_category=${category}`);
+    //         const data = await fetch(`https://job-quester-server-side.vercel.app/jobs?job_category=${category}`);
     //         return await data.json();
     //     },
     // });
 
     useEffect(() => {
-        fetch(`http://localhost:3000/jobs?job_category=${category}`)
+        fetch(`https://job-quester-server-side.vercel.app/jobs?job_category=${category}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)

@@ -25,7 +25,7 @@ const Add_Job = () => {
 
         console.log(addjob, 'get item')
 
-        axios.post('http://localhost:3000/jobs',addjob)
+        axios.post('https://job-quester-server-side.vercel.app/jobs',addjob)
             .then(res=>{
                 console.log(res.data)
                 if(res.data.acknowledged){

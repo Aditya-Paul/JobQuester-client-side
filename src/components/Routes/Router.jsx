@@ -47,22 +47,22 @@ const router = createBrowserRouter([
             {
                 path: '/JobQuester/My_Jobs', 
                 element:<PrivateRoute><My_job></My_job></PrivateRoute> ,
-                loader: ()=> fetch(`http://localhost:3000/jobs`)
+                loader: ()=> fetch(`https://job-quester-server-side.vercel.app/jobs`)
             },
             {
                 path: '/JobQuester/Applied_Jobs', 
                 element: <PrivateRoute><Applyjob></Applyjob></PrivateRoute>,
-                loader: ()=> fetch(`http://localhost:3000/appliedjobs`)
+                loader: ()=> fetch(`https://job-quester-server-side.vercel.app/appliedjobs`)
             },
             {
                 path: '/JobQuester/Updatejob/:id', 
                 element: <Updatejob></Updatejob>,
-                loader: ({params})=> fetch(`http://localhost:3000/jobs/${params.id}`)
+                loader: ({params})=> fetch(`https://job-quester-server-side.vercel.app/jobs/${params.id}`)
             },
             {
                 path: '/job/:id', 
                 element: <PrivateRoute><Jobdetails></Jobdetails></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:3000/jobs/${params.id}`,{credentials:"include"})
+                loader: ({params})=> fetch(`https://job-quester-server-side.vercel.app/jobs/${params.id}`,{credentials:"include"})
             },
 
         ]

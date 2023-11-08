@@ -15,7 +15,7 @@ const All_jobs = () => {
 
     useEffect(() => {
         if (jobTitle) {
-            fetch(`http://localhost:3000/jobs?job_title=${jobTitle}`)
+            fetch(`https://job-quester-server-side.vercel.app/jobs?job_title=${jobTitle}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -24,7 +24,7 @@ const All_jobs = () => {
 
         }
         else if (!jobTitle) {
-            fetch(`http://localhost:3000/jobs?job_title=${jobTitle}`)
+            fetch(`https://job-quester-server-side.vercel.app/jobs?job_title=${jobTitle}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
@@ -35,7 +35,7 @@ const All_jobs = () => {
     }, [jobTitle])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/jobs`)
+        fetch(`https://job-quester-server-side.vercel.app/jobs`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -75,7 +75,7 @@ const All_jobs = () => {
                                 </div>
 
                                 <div className="group w-72 md:w-80 lg:w-96">
-                                    <label  className="inline-block w-full text-sm font-medium text-gray-500 transition-all duration-200 ease-in-out group-focus-within:text-blue-400">Search by job title</label>
+                                    <label className="inline-block w-full text-sm font-medium text-gray-500 transition-all duration-200 ease-in-out group-focus-within:text-blue-400">Search by job title</label>
                                     <div className="relative flex items-center">
                                         <input onChange={handlechange} placeholder="job title" type="text" className="peer relative h-10 w-full rounded-md bg-purple-200 pl-4 pr-20 font-thin" />
                                     </div>

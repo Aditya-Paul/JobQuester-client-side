@@ -20,7 +20,7 @@ const Updatejob = () => {
         const applicant_number = form.applicant_number.value
 
         const upjob = { job_banner, job_title, name, job_category, salary, job_description, postdate, applicant_number, deadline}
-        axios.put(`http://localhost:3000/jobs/${loaddata._id}`,upjob)
+        axios.put(`https://job-quester-server-side.vercel.app/jobs/${loaddata._id}`,upjob)
         .then(res=>{
             console.log(res.data)
         })
