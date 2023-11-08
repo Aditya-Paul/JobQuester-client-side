@@ -60,7 +60,7 @@ const All_jobs = () => {
                                 <div className="">
                                     Available Post
                                     <select
-                                        onChange={handlechange}
+
                                         className="bordered border-2 rounded-lg h-12 ml-2"
                                         value={jobTitle}
                                     >
@@ -73,7 +73,14 @@ const All_jobs = () => {
 
                                     </select>
                                 </div>
-                                
+
+                                <div className="group w-72 md:w-80 lg:w-96">
+                                    <label  className="inline-block w-full text-sm font-medium text-gray-500 transition-all duration-200 ease-in-out group-focus-within:text-blue-400">Search by job title</label>
+                                    <div className="relative flex items-center">
+                                        <input onChange={handlechange} placeholder="job title" type="text" className="peer relative h-10 w-full rounded-md bg-purple-200 pl-4 pr-20 font-thin" />
+                                    </div>
+                                </div>
+
                             </div>
                             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                 <div className="inline-block min-w-full shadow-md rounded-lg ">

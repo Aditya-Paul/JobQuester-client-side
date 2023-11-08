@@ -1,4 +1,6 @@
 import BannerCards from "./BannerCards";
+import ExtraSection1 from "./ExtraSection1";
+import ExtraSection2 from "./ExtraSection2";
 
 
 
@@ -34,6 +36,8 @@ const Banner = () => {
             </div>
 
             <BannerCards></BannerCards>
+            <ExtraSection2></ExtraSection2>
+            <ExtraSection1></ExtraSection1>
             
         </>
     );

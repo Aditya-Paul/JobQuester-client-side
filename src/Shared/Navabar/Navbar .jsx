@@ -89,7 +89,7 @@ const Navbar = () => {
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full group-hover:opacity-75">
                                             <img src={user.photoURL} alt="User Avatar" className="w-full h-full object-cover rounded-full" />
-                                            <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg text-red-700">
+                                            <div className="absolute inset-0 flex- items-center justify-end left-10 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-lg ">
                                                 {user.displayName}
                                             </div>
                                         </div>

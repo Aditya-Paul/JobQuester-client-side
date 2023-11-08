@@ -30,7 +30,7 @@ const Jobdetails = () => {
              job_category : loadData.job_category,
              salary : loadData.salary,
              job_description : loadData.job_description,
-             applicant_number : loadData.applicant_number,
+             applicant_number : newNumber,
              applicantName : user.displayName,
              applicantEmail : user.email,
              applicantResume : value,
@@ -109,6 +109,7 @@ const Jobdetails = () => {
                                                             <input 
                                                             type="text"
                                                             value={value} 
+                                                            placeholder="put your resume link here"
                                                             onChange={(e)=>setValue(e.target.value)}
                                                             />
                                                             <button className="h-7 w-16 rounded-md bg-purple-300 text-xs font-semibold text-purple-500 " onClick={() => handleapply(loadData._id)} >submit</button>

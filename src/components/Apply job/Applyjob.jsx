@@ -42,7 +42,7 @@ const Applyjob = () => {
                     <div className="container mx-auto px-4 sm:px-8">
                         <div className="py-8">
                             <div className="mb-6">
-                                <h2 className="text-2xl font-semibold ">Job Category</h2>
+                                <h2 className="text-2xl font-semibold ">Applied Jobs</h2>
 
                             </div>
                             <div className=" flex flex-wrap space-y-5 items-center justify-between">
