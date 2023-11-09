@@ -2,6 +2,7 @@ import {  useEffect, useState } from "react";
 import { usePDF } from 'react-to-pdf';
 
 const Applyjob = () => {
+    //done
     const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
     const [jobCategory, setCategory] = useState('');
     const [data, setData] = useState([])
