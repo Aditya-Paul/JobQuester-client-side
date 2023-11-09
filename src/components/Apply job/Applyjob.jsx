@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { usePDF } from 'react-to-pdf';
 
 const Applyjob = () => {
