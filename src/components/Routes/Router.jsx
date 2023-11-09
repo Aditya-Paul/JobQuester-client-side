@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             {
                 path: '/JobQuester/Updatejob/:id', 
                 element: <Updatejob></Updatejob>,
-                loader: ({params})=> fetch(`https://job-quester-server-side.vercel.app/jobs/${params.id}`)
+                loader: ({params})=> fetch(`https://job-quester-server-side.vercel.app/jobs/${params.id}`,{credentials:"include"})
             },
             {
                 path: '/job/:id', 

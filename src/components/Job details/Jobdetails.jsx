@@ -17,12 +17,12 @@ const Jobdetails = () => {
 
     const [value, setValue] = useState("")
     
-    //const [num, setNum] = useState(0)
+    const [num, setNum] = useState(loadData.applicant_number)
     const handleapply = (id) => {
 
         const applicantnumber = parseInt(loadData.applicant_number)
         const newNumber = applicantnumber + 1
-        
+       
         const applydata = {
              job_banner : loadData.job_banner,
              job_title : loadData.job_title,
@@ -42,7 +42,10 @@ const Jobdetails = () => {
         else (
             axios.patch(`https://job-quester-server-side.vercel.app/jobs/${id}`, { applicant_number: newNumber })
                 .then(res => {
+                    console.log(res.data)
+                    setNum(newNumber)
                     if(res.data){
+                        
                         axios.post('https://job-quester-server-side.vercel.app/appliedjobs', applydata)
                         .then(res => {
                             console.log(res.data)
@@ -90,7 +93,7 @@ const Jobdetails = () => {
 
                                 <p className="text-gray-500">{loadData.job_description}</p>
 
-                                <p className="text-gray-500 text-base">Applicant Number : <a href="#" className="text-indigo-600 text-lg hover:underline">{loadData.applicant_number}</a></p>
+                                <p className="text-gray-500 text-base">Applicant Number : <a href="#" className="text-indigo-600 text-lg hover:underline">{num}</a></p>
 
                                 <div className="flex py-4 space-x-4">
                                     {

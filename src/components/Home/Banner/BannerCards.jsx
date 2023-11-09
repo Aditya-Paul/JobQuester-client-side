@@ -13,14 +13,6 @@ const BannerCards = () => {
     const [category, setCategory] = useState('')
     //console.log(category)
 
-    // const { data,isLoading } = useQuery({
-    //     queryKey: ["job_category"],
-    //     queryFn: async () => {
-    //         const data = await fetch(`https://job-quester-server-side.vercel.app/jobs?job_category=${category}`);
-    //         return await data.json();
-    //     },
-    // });
-
     useEffect(() => {
         fetch(`https://job-quester-server-side.vercel.app/jobs?job_category=${category}`)
             .then(res => res.json())
@@ -39,7 +31,7 @@ const BannerCards = () => {
         <div className="mt-4 mx-6  border-x-2 border-purple-100">
             <Tabs className=" text-center">
                 <TabList className="grid grid-cols-5 gap-4 w-full p-2">
-                    <Tab onClick={() => setCategory('')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600   ">All</Tab>
+                    <Tab onClick={() => setCategory('')} className="text-center border-b-2 border-purple-100 bg-purple-100 hover:bg-sky-700 text-purple-600   ">All</Tab>
                     <Tab onClick={() => setCategory('On Site')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">On Site Job</Tab>
                     <Tab onClick={() => setCategory('Remote')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">Remote Job</Tab>
                     <Tab onClick={() => setCategory('Hybrid')} className="text-center border-b-2 border-purple-100 bg-purple-100 text-purple-600">Hybrid</Tab>

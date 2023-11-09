@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Updatejob = () => {
     const loaddata = useLoaderData()
+    console.log(loaddata)
     const [deadline, setdeadline] = useState();
     const [postdate, setpostdate] = useState();
 
