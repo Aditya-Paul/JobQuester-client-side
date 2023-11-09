@@ -1,6 +1,5 @@
 import {  useEffect, useState } from "react";
 import { usePDF } from 'react-to-pdf';
-import { AuthContext } from "../Provider/Authprovider";
 
 const Applyjob = () => {
     const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
